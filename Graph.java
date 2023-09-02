@@ -1,6 +1,6 @@
 /**
  * @author (Herbert Wenisch)
- * @version (1.b Aufgabe)
+ * @version (1.b Lösung)
  */
 
 import java.util.Arrays;
@@ -34,7 +34,9 @@ public class Graph{
     // Fügt eine Kante  v ---> w vom Gewicht weight ein
     // Buch: KanteEinfügen(...)
     public void addEdge(int v, int w, int weight){
-      // Dein Code! (3 Zeilen)
+      if(v >= V ||  w >= V) return;
+      if(v < 0 ||  w < 0 ) return;
+      adj[v][w] = weight;
     }
     
     // -------------------------------------------------------------

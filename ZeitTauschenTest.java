@@ -27,6 +27,13 @@ public class ZeitTauschenTest {
             System.out.print(id + "  ");
         System.out.println();    
     }
+    
+    @Test
+    public void test_addEdge(){
+        System.out.println("- Adjazenzmatrix: \n");
+        System.out.print(graph);
+        System.out.println();    
+    }
 }
 
 

@@ -12,6 +12,7 @@ public class ZeitTauschen {
     public ZeitTauschen(){
         graph = new Graph(9); 
         fillUpNodes();
+        fillUpEdges();
     }
     
     public Graph getGraph(){
@@ -26,4 +27,15 @@ public class ZeitTauschen {
         graph.addNode("Terry"); 
     }
     
+    private void fillUpEdges(){
+        graph.addEdge(0, 1, 8);
+        graph.addEdge(0, 2, 4);
+        graph.addEdge(0, 4, 13);
+        graph.addEdge(1, 3, 9);
+        graph.addEdge(2, 1, 2);
+        graph.addEdge(2, 3, 8);
+        graph.addEdge(3, 0, 12);
+        graph.addEdge(3, 4, 5);
+        graph.addEdge(4, 2, 9);
+    }
 }

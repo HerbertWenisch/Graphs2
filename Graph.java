@@ -1,6 +1,6 @@
 /**
  * @author (Herbert Wenisch)
- * @version (1.a  Aufgabe)
+ * @version (1.a Lösung)
  */
 
 import java.util.Arrays;
@@ -18,7 +18,9 @@ public class Graph{
     
     // Buch: KnotenEinfügen(...)
     public void addNode(String id){
-        // Dein Code: 2 Zeilen!
+        if(V == V_MAX) return;
+        ids[V] = id;
+        V++;
     }
 
     // Gibt einen vollen Array ohne Freiplätze zurück.

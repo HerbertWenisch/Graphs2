@@ -40,14 +40,14 @@ public class Graph{
     }
     
     public void addEdge(String idv, String idw, int weight){
-      // Dein Code (eine Zeile!)
+      addEdge(indexOf(idv), indexOf(idw), weight);
     }
     
     // Gibt zur id den zughörigen Index zurück:
     // Buch KnotenNummerGeben(...)
     private int indexOf(String id){
-        // Dein Code!
-        // String-Vergleiche immer mit equals!
+        for(int v = 0; v < V; v++)
+           if(id.equals(ids[v])) return v;
         return -1; // nicht gefunden: Fehler!
     }
     

@@ -4,6 +4,8 @@
  */
 
 import java.util.Arrays;
+import org.graphstream.graph.*;
+import org.graphstream.graph.implementations.*;
 
 public class Graph{
     private final int V_MAX;
@@ -51,7 +53,13 @@ public class Graph{
         return -1; // nicht gefunden: Fehler!
     }
     
-    // -------------------------------------------------------------
+    // Zeichnet den Graph:
+    public void display(){
+        graphStream = new GraphStream();
+    }
+    
+    
+    // ---------------------------------------------------------------------
     // für den Schüler nicht von Bedeutung:
     
     // Returns a String of given length len, but only the first n charactes 
@@ -79,4 +87,64 @@ public class Graph{
        }      
        return out.toString();
     }
+    
+    
+    //-------------------------------------------------------------------------------------------
+    // Visualisierung des Graphen:
+    
+    private GraphStream graphStream;
+    
+    private class GraphStream {
+        private final org.graphstream.graph.Graph graph_ = new SingleGraph("showGraph");
+        
+        GraphStream(){
+          setCSS_();  
+          addNodes_();
+          addEdges_();
+          graph_.display();
+        }
+      
+        private void addNodes_(){
+          org.graphstream.graph.Node node_;
+          for(String id: getIds()){
+             node_ = graph_.addNode(id);
+             node_.setAttribute("ui.label", id);
+           }
+       }
+       
+       // Creates a id for a edge v --> w;  format: idV-idW
+       private String getEdgeId_(int v, int w){
+           return ids[v] + "-" + ids[w];
+        }
+        
+       private void addEdges_(){
+       for(int v = 0; v < V; v++)
+          for(int w = 0; w < V; w++){
+              if (adj[v][w] > 0){
+                  String idE = getEdgeId_(v,w);  // EdgeId
+                  org.graphstream.graph.Edge edge_ = graph_.getEdge(idE);
+                  if(edge_ == null){
+                      edge_ = graph_.addEdge(idE, ids[v], ids[w], true);
+                      edge_.setAttribute("ui.label", adj[v][w] + "");
+                  }
+              }
+          }
+       }
+       
+       private void setCSS_(){
+        graph_.addAttribute("ui.antialias");
+        graph_.addAttribute("ui.quality");
+        System.setProperty("org.graphstream.ui.renderer", "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
+        String styleSheet =  "node{" +
+            "   size: 30px, 30px;" +
+            "   text-size: 30;" +
+            "   fill-color: #eddeab;" +
+            "}" +
+            "edge{"+
+            " text-size: 25; }";
+        graph_.addAttribute("ui.stylesheet", styleSheet);
+      }
+    }
 }
+
+

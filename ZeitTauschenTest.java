@@ -34,6 +34,11 @@ public class ZeitTauschenTest {
         System.out.print(graph);
         System.out.println();    
     }
+    
+    @Test
+    public void test_display(){
+        graph.display();    
+    }
 }
 
 

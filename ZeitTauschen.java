@@ -28,14 +28,14 @@ public class ZeitTauschen {
     }
     
     private void fillUpEdges(){
-        graph.addEdge(0, 1, 8);
-        graph.addEdge(0, 2, 4);
-        graph.addEdge(0, 4, 13);
-        graph.addEdge(1, 3, 9);
-        graph.addEdge(2, 1, 2);
-        graph.addEdge(2, 3, 8);
-        graph.addEdge(3, 0, 12);
-        graph.addEdge(3, 4, 5);
-        graph.addEdge(4, 2, 9);
+        graph.addEdge("Roy", "Mass", 8);
+        graph.addEdge("Roy", "Jen", 4);
+        graph.addEdge("Roy", "Terry", 13);
+        graph.addEdge("Mass", "Delina", 9);
+        graph.addEdge("Jen", "Mass", 2);
+        graph.addEdge("Jen", "Delina", 8);
+        graph.addEdge("Delina", "Roy", 12);
+        graph.addEdge("Delina", "Terry", 5);
+        graph.addEdge("Terry", "Jen", 9);
     }
 }

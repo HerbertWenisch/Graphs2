@@ -1,6 +1,6 @@
 /**
  * @author (Herbert Wenisch)
- * @version (1.b Lösung)
+ * @version (1.c Aufgabe)
  */
 
 import java.util.Arrays;
@@ -37,6 +37,18 @@ public class Graph{
       if(v >= V ||  w >= V) return;
       if(v < 0 ||  w < 0 ) return;
       adj[v][w] = weight;
+    }
+    
+    public void addEdge(String idv, String idw, int weight){
+      // Dein Code (eine Zeile!)
+    }
+    
+    // Gibt zur id den zughörigen Index zurück:
+    // Buch KnotenNummerGeben(...)
+    private int indexOf(String id){
+        // Dein Code!
+        // String-Vergleiche immer mit equals!
+        return -1; // nicht gefunden: Fehler!
     }
     
     // -------------------------------------------------------------
